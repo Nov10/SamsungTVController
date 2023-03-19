@@ -278,8 +278,10 @@ namespace TVControl
                 {
                     if(stopWatch.Elapsed.Seconds > MaxTimeOut)
                     {
-                        Console.WriteLine("Boom!");
-                        break;
+                        sender.Viewer.isWorking = false;
+                        sender.Viewer.Refresh();
+                        Console.WriteLine($"Error getting device status. Device: {sender.Data.Name}, {response.StatusCode}");
+                        return false;
                     }
                 }
 

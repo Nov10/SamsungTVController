@@ -54,6 +54,10 @@ namespace SchoolTVController
             List<GroupPreset> presets = new List<GroupPreset>();
             presets.Add(new GroupPreset());
             TVControl.TVFileController.WriteTVGroupData(presets);
+
+            if (MainWindow.MasterSetting == null)
+                MainWindow.MasterSetting = new Setting();
+            TVControl.TVFileController.WriteMasterSettingData((MainWindow.MasterSetting);
         }
         private void ButtonTVListReader_Click(object sender, RoutedEventArgs e)
         {
