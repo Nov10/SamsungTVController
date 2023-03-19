@@ -1,0 +1,38 @@
+﻿<Window x:Class="SchoolTVController.TVViewerSettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolTVController"
+        mc:Ignorable="d"
+        Title="TVViewerSettingWindow" Height="450" Width="800"
+        Closed="Window_Closed">
+    <Grid Background="#FFA5A5A5">
+        <Border CornerRadius="8" Height="36" Margin="10,31,0,0" VerticalAlignment="Top" Width="398" Background="White" HorizontalAlignment="Left">
+            <Grid HorizontalAlignment="Left" />
+        </Border>
+        <TextBox x:Name="TVNameTextBox" HorizontalAlignment="Left" Height="27" Margin="128,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="274" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,35,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="27" Width="59" FontSize="20"/>
+
+        <Border CornerRadius="8" Height="36" Margin="10,81,0,0" VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Width="771">
+            <Grid HorizontalAlignment="Left" />
+        </Border>
+        <TextBox x:Name="DeviceIDTextBox" HorizontalAlignment="Left" Height="30" Margin="128,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="647" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,84,0,0" TextWrapping="Wrap" Text="DeviceID" VerticalAlignment="Top" Height="33" Width="95" FontSize="20"/>
+
+        <Border CornerRadius="8" Height="36" Margin="10,132,0,0" VerticalAlignment="Top" Width="398" Background="White" HorizontalAlignment="Left">
+            <Grid HorizontalAlignment="Left" />
+        </Border>
+        <TextBox x:Name="IPTextBox" HorizontalAlignment="Left" Height="25" Margin="128,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="274" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,137,0,0" TextWrapping="Wrap" Text="IP" VerticalAlignment="Top" Height="25" Width="22" FontSize="20"/>
+
+        <Border CornerRadius="8" Height="102" Margin="10,182,0,0" VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Width="771">
+            <Grid HorizontalAlignment="Left" />
+        </Border>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="95" Margin="128,185,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="647" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,185,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="33" Width="103" FontSize="20"/>
+
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="705,387,0,0" VerticalAlignment="Top" Width="79" Click="SaveButton_Click" Height="24"/>
+        <Button x:Name="RemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="611,387,0,0" VerticalAlignment="Top" Width="81" Click="RemoveButton_Click" Height="24"/>
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="SchoolTVController.TVViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolTVController"
+             mc:Ignorable="d" 
+             Height="160"
+             Width="210"
+             d:DesignHeight="160" d:DesignWidth="210">
+    <Grid x:Name="SelectGrid" Background="#000000FF" Height="160" Width="210">
+        <Grid Background="White" Height="150" Width="200"/>
+        <Button x:Name="SelectButton" Background="White" Height="150" Width="200" Click="SelectButton_Click" MouseRightButtonDown="SelectButton_MouseRightButtonDown"/>
+        <Grid x:Name="StateGrid" Height="150" Width="200" Background="#00FF0000" IsHitTestVisible="False">
+
+        </Grid>
+        <TextBlock x:Name="TVNameTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TV NAME" VerticalAlignment="Top" Width="120" Height="23" FontSize="16"/>
+        <Button x:Name="OnButton" Content="On" HorizontalAlignment="Left" Margin="115,33,0,0" VerticalAlignment="Top" Width="75" Click="OnButton_Click"/>
+        <Button x:Name="OffButton" Content="Off" HorizontalAlignment="Left" Margin="115,57,0,0" VerticalAlignment="Top" Width="75" Click="OffButton_Click"/>
+        <TextBlock x:Name="ONOFFTextBlock" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="ON/OFF" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ChannelTextBlock" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" Text="CHANNEL" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ChannelNameTextBlock" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="CHANNELNAME" VerticalAlignment="Top" Width="97" Height="15"/>
+        <TextBlock x:Name="MediaInputTextBlock" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" Text="MEDIAINPUT" VerticalAlignment="Top"/>
+
+        <Button x:Name="TVButton" Content="Set2 dTV" HorizontalAlignment="Left" Margin="115,82,0,0" VerticalAlignment="Top" Width="75" Click="TVButton_Click"/>
+
+        <TextBox x:Name="ChannelInputTextBox" HorizontalAlignment="Left" Height="18" Margin="10,122,0,0" TextWrapping="Wrap" Text="CHANNELNAME" VerticalAlignment="Top" Width="97" TextChanged="ChannelInputTextBox_TextChanged"/>
+        <Button x:Name="SetTVChannelButton" Content="Set Channel" HorizontalAlignment="Left" Margin="112,121,0,0" VerticalAlignment="Top" Width="78" Click="SetTVChannelButton_Click"/>
+    </Grid>
+</UserControl>

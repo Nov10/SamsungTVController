@@ -1,0 +1,51 @@
+﻿<Window x:Class="SchoolTVController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolTVController"
+        mc:Ignorable="d"
+        MinWidth="1920" MaxWidth="1920"
+        MinHeight="1080" MaxHeight="1080"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid Background="White">
+        <Grid Margin="375,210,53.092,50.831">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+                <WrapPanel x:Name="TVViewPanel" Background="#FFBBBBBB"
+                   MouseDown="TVViewPanel_MouseDown" Drop="TVViewPanel_Drop">
+                    <!--<local:TVViewer HorizontalAlignment="Left" Height="150" Margin="20,20,0,0" VerticalAlignment="Top" Width="200"/>-->
+                </WrapPanel>
+            </ScrollViewer>
+        </Grid>
+        <Button x:Name="TVCreateButton" Content="Create New" Margin="1735,967,79.092,58.831" Click="TVCreateButton_Click"/>
+        
+        <Button x:Name="ButtonRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="62,17,0,0" VerticalAlignment="Top" Width="94" Height="25" Click="ButtonRefresh_Click"/>
+
+        <Grid Background="#FFBBBBBB" Margin="10,210,1572.092,548.831" >
+            <TextBox x:Name="GroupChannelNameTextBox" HorizontalAlignment="Left" Height="21" Margin="141,69,0,0" TextWrapping="Wrap" Text="Channel Name" VerticalAlignment="Top" Width="167" FontSize="14" TextChanged="GroupChannelNameTextBox_TextChanged"/>
+            <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Group Setting" VerticalAlignment="Top" Foreground="White"  Height="30" FontSize="20" Width="157" HorizontalAlignment="Center" Margin="88,10,87,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="27,69,0,0" TextWrapping="Wrap" Text="Channel Name" VerticalAlignment="Top" Foreground="White" Height="21" Width="123" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Margin="38,96,0,0" TextWrapping="Wrap" Text="Set Channel" VerticalAlignment="Top" Foreground="White" Height="21" Width="92" FontSize="16"/>
+            <Button x:Name="GroupChannelSetButton" Content="Set Channel" HorizontalAlignment="Left" Margin="141,95,0,0" VerticalAlignment="Top" Width="167" Height="28" Click="GroupChannelSetButton_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="60,185,0,0" TextWrapping="Wrap" Text="Switch" VerticalAlignment="Top" Foreground="White" Height="21" Width="51" FontSize="16" Grid.RowSpan="2"/>
+            <Button x:Name="GroupOnButton" Content="On" HorizontalAlignment="Left" Margin="141,166,0,0" VerticalAlignment="Top" Width="167" Height="28" Click="GroupOnButton_Click"/>
+            <Button x:Name="GroupOffButton" Content="Off" HorizontalAlignment="Left" Margin="141,199,0,0" VerticalAlignment="Top" Width="167" Height="28" Grid.RowSpan="2" Click="GroupOffButton_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="19,242,0,-4" TextWrapping="Wrap" Text="Set to DigitalTV" VerticalAlignment="Top" Foreground="White" Height="21" Width="111" FontSize="16"/>
+            <Button x:Name="GroupSet2TVButton" Content="Set to DigitalTV" HorizontalAlignment="Left" Margin="141,241,0,-10" VerticalAlignment="Top" Width="167" Height="28" Click="GroupSet2TVButton_Click"/>
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="10,546,1572.092,50.831">
+            <Grid Background="#FFBBBBBB">
+                <StackPanel x:Name="GroupPresetStackPanel" Orientation="Vertical" Margin="0,10,0,49" AllowDrop="True" Drop="GroupPresetStackPanel_Drop" MouseDown="GroupPresetStackPanel_MouseDown">
+                    <!--<local:PresetViewer Height="50" Width="300" />-->
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <TextBlock x:Name="SelectedGroupListTextBlock" HorizontalAlignment="Left" Margin="375,186,0,0" TextWrapping="Wrap" Text="Selected: " VerticalAlignment="Top" Height="24" Width="1486" FontSize="16"/>
+        <Button x:Name="GroupPresetCreateButton" Content="Create New" Click="GroupPresetCreateButton_Click" Margin="245,967,1595.092,57.831"/>
+        
+        <Button x:Name="AllSelectButton" Content="Select All" HorizontalAlignment="Left" Margin="62,173,0,0" VerticalAlignment="Top" Width="94" Height="24" Click="AllSelectButton_Click"/>
+        <Button x:Name="AllUnSelectButton" Content="UnSelect All" HorizontalAlignment="Left" Margin="174,173,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="AllUnSelectButton_Click"/>
+        <Button x:Name="SettingButton" Content="Settings" HorizontalAlignment="Left" Margin="1778,33,0,0" VerticalAlignment="Top" Width="75" Click="SettingButton_Click"/>
+        <TextBlock x:Name="RefreshTimerTextBlock" HorizontalAlignment="Left" Margin="174,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
