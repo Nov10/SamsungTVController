@@ -57,7 +57,7 @@ namespace SchoolTVController
 
             if (MainWindow.MasterSetting == null)
                 MainWindow.MasterSetting = new Setting();
-            TVControl.TVFileController.WriteMasterSettingData((MainWindow.MasterSetting);
+            TVControl.TVFileController.WriteMasterSettingData((MainWindow.MasterSetting));
         }
         private void ButtonTVListReader_Click(object sender, RoutedEventArgs e)
         {

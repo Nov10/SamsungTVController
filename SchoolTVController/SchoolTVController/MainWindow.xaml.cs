@@ -407,7 +407,10 @@ namespace SchoolTVController
         {
             GroupPreset preset = new GroupPreset();
             Presets.Add(preset);
-            CreateGroupPresetViewer(preset);
+            var v = CreateGroupPresetViewer(preset);
+            GroupPresetStackPanel.Children.Add(v);
+            PresetViewers.Add(v);
+            TVFileController.WriteTVGroupData(Presets);
         }
         PresetViewer CreateGroupPresetViewer(GroupPreset preset)
         {
