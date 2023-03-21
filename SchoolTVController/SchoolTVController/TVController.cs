@@ -264,8 +264,6 @@ namespace TVControl
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", headers.Content_Type);
 
             var response = await client.GetAsync(APIPoint + $"devices/{sender.Data.DeviceID}/status");
-            //var content = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(JsonConvert.DeserializeObject(content));
 
             if (response.IsSuccessStatusCode == true)
             {
@@ -348,7 +346,6 @@ namespace TVControl
                 TVHealth helath = new TVHealth();
 
                 var active = parsed["components"]["main"]["switch"]["switch"]["value"];
-                Console.WriteLine(parsed);
                 helath.Channel = parsed["components"]["main"]["tvChannel"]["tvChannel"]["value"].ToString();
                 helath.ChannelName = parsed["components"]["main"]["tvChannel"]["tvChannelName"]["value"].ToString();
                 helath.MediaInput = parsed["components"]["main"]["mediaInputSource"]["inputSource"]["value"].ToString();
