@@ -132,7 +132,13 @@ namespace SchoolTVController
             }
             catch
             {
-
+                ONOFFTextBlock.Text = "ERROR";
+                //빨간색
+                StateGrid.Background = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+                //TV의 채널 업데이트
+                ChannelTextBlock.Text = "ERROR";
+                ChannelNameTextBlock.Text = "ERROR";
+                MediaInputTextBlock.Text = "ERROR";
             }
             isRefreshing = false;
         }

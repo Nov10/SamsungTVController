@@ -20,7 +20,7 @@ namespace TVControl
             On,
             ERROR
         }
-        const string AccessToken = "f03a736f-64fe-44ec-b459-f88ab3cd3cea";
+        const string AccessToken = "981e0e15-c03e-4e77-bbb4-efba620d711d";
         public delegate Task<bool> Event();
         const string APIPoint = "https://api.smartthings.com/v1/";
         const float MaxTimeOut = 13.0f;
@@ -280,7 +280,7 @@ namespace TVControl
                     {
                         sender.Viewer.isWorking = false;
                         sender.Viewer.Refresh();
-                        Console.WriteLine($"Error getting device status. Device: {sender.Data.Name}, {response.StatusCode}");
+                        Console.WriteLine($"Time Out Error getting device status. Device: {sender.Data.Name}, {response.StatusCode}");
                         return false;
                     }
                 }
@@ -348,6 +348,7 @@ namespace TVControl
                 TVHealth helath = new TVHealth();
 
                 var active = parsed["components"]["main"]["switch"]["switch"]["value"];
+                Console.WriteLine(parsed);
                 helath.Channel = parsed["components"]["main"]["tvChannel"]["tvChannel"]["value"].ToString();
                 helath.ChannelName = parsed["components"]["main"]["tvChannel"]["tvChannelName"]["value"].ToString();
                 helath.MediaInput = parsed["components"]["main"]["mediaInputSource"]["inputSource"]["value"].ToString();
