@@ -1,0 +1,6 @@
+{
+  "RefreshTimeSec": 5.0,
+  "MasterSettingPath": "C:\\Users\\micha\\Desktop\\masterSetting.json",
+  "TVDataPath": "C:\\Users\\micha\\Desktop\\tvData.json",
+  "TVGroupPath": "C:\\Users\\micha\\Desktop\\tvGroupData.json"
+}
