@@ -31,6 +31,11 @@
         <TextBox x:Name="MasterSettingFilePathTextBox" HorizontalAlignment="Left" Height="19" Margin="124,133,0,0" TextWrapping="Wrap" Text="MasterSettingFilePath" VerticalAlignment="Top" Width="467" FontSize="12"/>
         <TextBlock HorizontalAlignment="Left" Margin="16,134,0,0" TextWrapping="Wrap" Text="MasterSetting Path" VerticalAlignment="Top" Height="19" Width="108" FontSize="12"/>
 
+        <Border CornerRadius="8" Height="27" Margin="10,176,0,0" VerticalAlignment="Top" Width="593" Background="White" HorizontalAlignment="Left">
+            <Grid HorizontalAlignment="Left" />
+        </Border>
+        <TextBox x:Name="AccessTokenTextBox" HorizontalAlignment="Left" Height="19" Margin="124,180,0,0" TextWrapping="Wrap" Text="AccessToken" VerticalAlignment="Top" Width="467" FontSize="12" TextChanged="AccessTokenTextBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,181,0,0" TextWrapping="Wrap" Text="AccessToken" VerticalAlignment="Top" Height="19" Width="108" FontSize="12"/>
 
         <Button x:Name="ButtonTVListReader" Content="Read TV List" HorizontalAlignment="Left" Margin="673,72,0,0" VerticalAlignment="Top" Width="102" Height="25" Click="ButtonTVListReader_Click"/>
         <Button x:Name="ButtonGroupPresetReader" Content="Read Preset List" HorizontalAlignment="Left" Margin="673,103,0,0" VerticalAlignment="Top" Width="102" Height="25" Click="ButtonGroupPresetReader_Click"/>

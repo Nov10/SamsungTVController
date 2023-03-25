@@ -28,6 +28,7 @@ namespace SchoolTVController
             MasterSettingFilePathTextBox.Text = MainWindow.MasterSetting.MasterSettingPath;
             TvDataFilePathTextBox.Text = MainWindow.MasterSetting.TVDataPath;
             GroupPresetDataFilePathTextBox.Text = MainWindow.MasterSetting.TVGroupPath;
+            AccessTokenTextBox.Text = MainWindow.MasterSetting.AccessToken;
         }
 
         private void AutoRefreshTimeValidation(object sender, TextCompositionEventArgs e)
@@ -42,6 +43,7 @@ namespace SchoolTVController
             MainWindow.MasterSetting.MasterSettingPath = MasterSettingFilePathTextBox.Text;
             MainWindow.MasterSetting.TVDataPath = TvDataFilePathTextBox.Text;
             MainWindow.MasterSetting.TVGroupPath = GroupPresetDataFilePathTextBox.Text;
+            MainWindow.MasterSetting.AccessToken = AccessTokenTextBox.Text;
             TVControl.TVFileController.WriteMasterSettingData(MainWindow.MasterSetting);
             //this.Close();
         }
@@ -85,6 +87,11 @@ namespace SchoolTVController
         private void ButtonMastetSettingReader_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.ReadMasterSetting();
+        }
+
+        private void AccessTokenTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //MainWindow.MasterSetting.AccessToken = AccessTokenTextBox.Text;
         }
     }
 }

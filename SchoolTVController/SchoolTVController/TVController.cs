@@ -20,7 +20,7 @@ namespace TVControl
             On,
             ERROR
         }
-        const string AccessToken = "981e0e15-c03e-4e77-bbb4-efba620d711d";
+        //const string AccessToken = "981e0e15-c03e-4e77-bbb4-efba620d711d";
         public delegate Task<bool> Event();
         const string APIPoint = "https://api.smartthings.com/v1/";
         const float MaxTimeOut = 13.0f;
@@ -254,13 +254,13 @@ namespace TVControl
 
             var headers = new
             {
-                Authorization = $"Bearer {AccessToken}",
+                Authorization = $"Bearer {MainWindow.MasterSetting.AccessToken}",
                 Content_Type = "application/json",
             };
 
             var client = new HttpClient();
             //권한 설정
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", MainWindow.MasterSetting.AccessToken);
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", headers.Content_Type);
 
             var response = await client.GetAsync(APIPoint + $"devices/{sender.Data.DeviceID}/status");
@@ -333,7 +333,7 @@ namespace TVControl
             await TVControl.TVController.UpdateTV(data.DeviceID);
             //권한 설정
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", AccessToken);
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", MainWindow.MasterSetting.AccessToken);
 
             // get current TV status
             var response = await httpClient.GetAsync(APIPoint + $"devices/{data.DeviceID}/status");
@@ -432,14 +432,14 @@ namespace TVControl
 
             var headers = new
             {
-                Authorization = $"Bearer {AccessToken}",
+                Authorization = $"Bearer {MainWindow.MasterSetting.AccessToken}",
                 Content_Type = "application/json",
             };
 
             using (var client = new HttpClient())
             {
                 //권한 설정
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", MainWindow.MasterSetting.AccessToken);
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", headers.Content_Type);
                 //통신 시도
                 var response = await client.PostAsync(APIPoint + $"devices/{deviceID}/commands",
