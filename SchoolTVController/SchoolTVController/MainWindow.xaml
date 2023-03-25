@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolTVController"
         mc:Ignorable="d"
-        MinWidth="1920" MaxWidth="1920"
-        MinHeight="1080" MaxHeight="1080"
+        MaxWidth="1920" MaxHeight="1080"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid Background="White">
-        <Grid Margin="375,210,53.092,50.831">
+        <Grid Margin="375,210,59,51">
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
                 <WrapPanel x:Name="TVViewPanel" Background="#FFBBBBBB"
                    MouseDown="TVViewPanel_MouseDown" Drop="TVViewPanel_Drop">
@@ -17,11 +16,11 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <Button x:Name="TVCreateButton" Content="Create New" Margin="1735,967,79.092,58.831" Click="TVCreateButton_Click"/>
-        
+        <Button x:Name="TVCreateButton" Content="Create New" Margin="0,0,79,59" Click="TVCreateButton_Click" HorizontalAlignment="Right" Width="106" Height="38" VerticalAlignment="Bottom"/>
+
         <Button x:Name="ButtonRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="62,17,0,0" VerticalAlignment="Top" Width="94" Height="25" Click="ButtonRefresh_Click"/>
 
-        <Grid Background="#FFBBBBBB" Margin="10,210,1572.092,548.831" >
+        <Grid Background="#FFBBBBBB" Margin="10,210,0,0" HorizontalAlignment="Left" Width="338" Height="300" VerticalAlignment="Top" >
             <TextBox x:Name="GroupChannelNameTextBox" HorizontalAlignment="Left" Height="21" Margin="141,69,0,0" TextWrapping="Wrap" Text="Channel Name" VerticalAlignment="Top" Width="167" FontSize="14" TextChanged="GroupChannelNameTextBox_TextChanged"/>
             <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Group Setting" VerticalAlignment="Top" Foreground="White"  Height="30" FontSize="20" Width="157" HorizontalAlignment="Center" Margin="88,10,87,0"/>
             <TextBlock HorizontalAlignment="Left" Margin="27,69,0,0" TextWrapping="Wrap" Text="Channel Name" VerticalAlignment="Top" Foreground="White" Height="21" Width="123" FontSize="16"/>
@@ -33,7 +32,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="19,242,0,-4" TextWrapping="Wrap" Text="Set to DigitalTV" VerticalAlignment="Top" Foreground="White" Height="21" Width="111" FontSize="16"/>
             <Button x:Name="GroupSet2TVButton" Content="Set to DigitalTV" HorizontalAlignment="Left" Margin="141,241,0,-10" VerticalAlignment="Top" Width="167" Height="28" Click="GroupSet2TVButton_Click"/>
         </Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="10,546,1572.092,50.831">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="10,546,0,51" HorizontalAlignment="Left" Width="338">
             <Grid Background="#FFBBBBBB">
                 <StackPanel x:Name="GroupPresetStackPanel" Orientation="Vertical" Margin="0,10,0,49" AllowDrop="True" Drop="GroupPresetStackPanel_Drop" MouseDown="GroupPresetStackPanel_MouseDown">
                     <!--<local:PresetViewer Height="50" Width="300" />-->
@@ -41,11 +40,11 @@
             </Grid>
         </ScrollViewer>
         <TextBlock x:Name="SelectedGroupListTextBlock" HorizontalAlignment="Left" Margin="375,186,0,0" TextWrapping="Wrap" Text="Selected: " VerticalAlignment="Top" Height="24" Width="1486" FontSize="16"/>
-        <Button x:Name="GroupPresetCreateButton" Content="Create New" Click="GroupPresetCreateButton_Click" Margin="245,967,1595.092,57.831"/>
-        
+        <Button x:Name="GroupPresetCreateButton" Content="Create New" Click="GroupPresetCreateButton_Click" Margin="245,0,0,58" HorizontalAlignment="Left" Width="80" Height="39" VerticalAlignment="Bottom"/>
+
         <Button x:Name="AllSelectButton" Content="Select All" HorizontalAlignment="Left" Margin="62,173,0,0" VerticalAlignment="Top" Width="94" Height="24" Click="AllSelectButton_Click"/>
         <Button x:Name="AllUnSelectButton" Content="UnSelect All" HorizontalAlignment="Left" Margin="174,173,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="AllUnSelectButton_Click"/>
-        <Button x:Name="SettingButton" Content="Settings" HorizontalAlignment="Left" Margin="1778,33,0,0" VerticalAlignment="Top" Width="75" Click="SettingButton_Click"/>
+        <Button x:Name="SettingButton" Content="Settings" Margin="0,33,67,0" Click="SettingButton_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75"/>
         <TextBlock x:Name="RefreshTimerTextBlock" HorizontalAlignment="Left" Margin="174,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 </Window>
