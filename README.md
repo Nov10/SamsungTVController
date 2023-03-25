@@ -21,3 +21,5 @@
 mon10lur49@gmail.com
 
 7. 초기에 해당 프로그램을 사용하기 위해서는 C드라이브의 바로 하위 폴더에 첨부된 3개의 json 파일들을 복사하여 붙여넣으십시오.
+
+8. Release/실행파일 : https://github.com/Nov10/SamsungTVController/releases/tag/Release
