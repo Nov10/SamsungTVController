@@ -126,6 +126,19 @@ namespace SchoolTVController
             }
             return -1;
         }
+        public bool FindViewerByInstanceID(string instanceID, out TVViewer viewer)
+        {
+            for (int i = 0; i < Viewers.Count; i++)
+            {
+                if (instanceID == Viewers[i].Data.InstanceID)
+                {
+                    viewer = Viewers[i];
+                    return true;
+                 }
+            }
+            viewer = null;
+            return false;
+        }
 
         public bool IsViewerExistDeviceID(string id, out string tvName)
         {
@@ -391,12 +404,11 @@ namespace SchoolTVController
         {
             for (int i = 0; i < data.Count; i++)
             {
-                for (int k = 0; k < data[i].DeviceIDs.Count; k++)
+                for (int k = 0; k < data[i].InstanceIDs.Count; k++)
                 {
-                    if (MainWindow.Instance.IsViewerExistDeviceID(data[i].DeviceIDs[k], out string name) == false)
+                    if (MainWindow.Instance.FindViewerByInstanceID(data[i].InstanceIDs[k], out var v) == false)
                     {
-                        data[i].DeviceIDs.RemoveAt(k);
-                        data[i].Names.RemoveAt(k);
+                        data[i].InstanceIDs.RemoveAt(k);
                         k--;
                     }
                 }

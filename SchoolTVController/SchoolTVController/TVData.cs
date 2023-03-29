@@ -14,5 +14,11 @@ namespace TVControl
         public string IP;
         public int Index;
         public string Description;
+        public string InstanceID;
+
+        public TVData()
+        {
+            InstanceID = System.Guid.NewGuid().ToString() + System.Guid.NewGuid().ToString() + DateTime.Now.ToString();
+        }
     }
 }

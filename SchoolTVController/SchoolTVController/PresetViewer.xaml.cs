@@ -53,9 +53,9 @@ namespace SchoolTVController
 
             bool wasAllSelected = true;
 
-            for(int i = 0; i < Preset.DeviceIDs.Count; i++)
+            for(int i = 0; i < Preset.InstanceIDs.Count; i++)
             {
-                if(MainWindow.FindTVViewPanelByID(Preset.DeviceIDs[i], out TVViewer viewer))
+                if(MainWindow.Instance.FindViewerByInstanceID(Preset.InstanceIDs[i], out TVViewer viewer))
                 {
                     if(viewer.isSelected == false)
                     {
@@ -68,9 +68,9 @@ namespace SchoolTVController
             if(wasAllSelected == true)
             {
                 //전부 선택되었을 때에는, 모든 선택을 해제합니다.
-                for (int i = 0; i < Preset.DeviceIDs.Count; i++)
+                for (int i = 0; i < Preset.InstanceIDs.Count; i++)
                 {
-                    if (MainWindow.FindTVViewPanelByID(Preset.DeviceIDs[i], out TVViewer viewer))
+                    if (MainWindow.Instance.FindViewerByInstanceID(Preset.InstanceIDs[i], out TVViewer viewer))
                     {
                         viewer.Select(false, MainWindow.Instance.SelectedViewers);
                     }

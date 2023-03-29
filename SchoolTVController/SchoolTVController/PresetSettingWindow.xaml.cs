@@ -37,8 +37,9 @@ namespace SchoolTVController
             TmpPreset = new GroupPreset();
             TmpPreset.Name = preset.Name;
             TmpPreset.Index = preset.Index;
-            TmpPreset.DeviceIDs = new List<string>(preset.DeviceIDs);
-            TmpPreset.Names = new List<string>(preset.Names);
+            //TmpPreset.DeviceIDs = new List<string>(preset.DeviceIDs);
+            //TmpPreset.Names = new List<string>(preset.Names);
+            TmpPreset.InstanceIDs = new List<string>(preset.InstanceIDs);
 
             viewers = list;
             OnSave = onSave;
@@ -46,14 +47,16 @@ namespace SchoolTVController
             for (int i = 0; i < list.Count; i++)
             {
                 Button btn = new Button();
-                btn.Tag = list[i].Data.DeviceID;
+                //btn.Tag = list[i].Data.DeviceID;
+                btn.Tag = list[i].Data.InstanceID;
                 btn.Content = list[i].Data.Name;
                 btn.Click += TVDataButton_Click;
                 btn.Height = 40;
                 btn.Width = 70;
                 btn.Margin = new Thickness(10, 10, 0, 0);
 
-                if (TmpPreset.DeviceIDs.Contains(btn.Tag))
+                //if (TmpPreset.DeviceIDs.Contains(btn.Tag))
+                if (TmpPreset.InstanceIDs.Contains(btn.Tag))
                 {
                     btn.Background = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0));
                 }
@@ -66,8 +69,13 @@ namespace SchoolTVController
             }
 
             string names = string.Empty;
-            for (int i = 0; i < TmpPreset.DeviceIDs.Count; i++)
-                names += TmpPreset.Names[i] + "  ";
+            //for (int i = 0; i < TmpPreset.DeviceIDs.Count; i++)
+            //    names += TmpPreset.Names[i] + "  ";
+            for (int i = 0; i < TmpPreset.InstanceIDs.Count; i++)
+            {
+                if (MainWindow.Instance.FindViewerByInstanceID(TmpPreset.InstanceIDs[i], out var v))
+                    names += v.Data.Name + "  ";
+            }
             SelectedTVsTextBlock.Text = names;
 
             PresetNameTextBox.Text = TmpPreset.Name;
@@ -79,22 +87,25 @@ namespace SchoolTVController
                 return;
             Button btn = (Button)sender;
             string tag = btn.Tag.ToString();
-            if (TmpPreset.DeviceIDs.Contains(tag))
+            if (TmpPreset.InstanceIDs.Contains(tag))
             {
-                TmpPreset.DeviceIDs.Remove(tag);
-                TmpPreset.Names.Remove(btn.Content.ToString());
+                TmpPreset.InstanceIDs.Remove(tag);
+                //TmpPreset.Names.Remove(btn.Content.ToString());
                 btn.Background = new SolidColorBrush(Color.FromArgb(255, 128, 128, 128));
             }
             else
             {
-                TmpPreset.DeviceIDs.Add(tag);
-                TmpPreset.Names.Add(btn.Content.ToString());
+                TmpPreset.InstanceIDs.Add(tag);
+                //TmpPreset.Names.Add(btn.Content.ToString());
                 btn.Background = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0));
             }
 
             string names = string.Empty;
-            for (int i = 0; i < TmpPreset.DeviceIDs.Count; i++)
-                names += TmpPreset.Names[i] + "  ";
+            for (int i = 0; i < TmpPreset.InstanceIDs.Count; i++)
+            {
+                if (MainWindow.Instance.FindViewerByInstanceID(TmpPreset.InstanceIDs[i], out var v))
+                    names += v.Data.Name + "  ";
+            }
             SelectedTVsTextBlock.Text = names;
         }
 
@@ -108,8 +119,8 @@ namespace SchoolTVController
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             TargetPreset.Name = TmpPreset.Name;
-            TargetPreset.DeviceIDs = new List<string>(TmpPreset.DeviceIDs);
-            TargetPreset.Names = new List<string>(TmpPreset.Names);
+            TargetPreset.InstanceIDs = new List<string>(TmpPreset.InstanceIDs);
+            //TargetPreset.Names = new List<string>(TmpPreset.Names);
             TargetPreset.Index = TmpPreset.Index;
             OnSave?.Invoke();
             this.Hide();

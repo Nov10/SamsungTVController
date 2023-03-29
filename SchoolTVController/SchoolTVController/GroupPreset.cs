@@ -10,8 +10,9 @@ namespace SchoolTVController
     public class GroupPreset
     {
         public string Name = string.Empty;
-        public List<string> DeviceIDs = new List<string>();
-        public List<string> Names = new List<string>();
+        //public List<string> DeviceIDs = new List<string>();
+        //public List<string> Names = new List<string>();
+        public List<string> InstanceIDs = new List<string>();
         public int Index = 0;
     }
 }
