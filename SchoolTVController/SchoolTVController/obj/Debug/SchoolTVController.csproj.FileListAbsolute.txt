@@ -106,7 +106,6 @@ E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\Sc
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\bin\Debug\SchoolTVController.pdb
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\bin\Debug\Newtonsoft.Json.dll
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\bin\Debug\Newtonsoft.Json.xml
-E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\SchoolTVController.csprojAssemblyReference.cache
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\AdvancedTVControllerWindow.g.cs
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\MainSetting\SettingViewer.g.cs
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\MainWindow.g.cs
