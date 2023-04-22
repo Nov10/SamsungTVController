@@ -24,7 +24,6 @@ namespace TVControl
         public delegate Task<bool> Event();
         const string APIPoint = "https://api.smartthings.com/v1/";
         const float MaxTimeOut = 13.0f;
-
         public static async Task<bool> SwitchTV(TVData data, eState state, bool update = true)
         {
             //목표 상태를 문자열로 변환
@@ -58,8 +57,8 @@ namespace TVControl
 
             DataSender sender = new DataSender();
             sender.Viewer = viewer;
-            sender.Data = data;
             sender.CommandData = commandData;
+            sender.Data = data;
             sender.RightAfterRequest = () => {
                 sender.Viewer.ONOFFTextBlock.Text = "Loading...";
             };
@@ -317,7 +316,7 @@ namespace TVControl
             public string MediaInputName;
             public bool Mute;
         }
-        class DataSender
+        struct DataSender
         {
             public TVData Data;
             public object CommandData;
@@ -335,8 +334,15 @@ namespace TVControl
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", MainWindow.MasterSetting.AccessToken);
 
+            var response2 = await httpClient.GetAsync(APIPoint + $"devices/{data.DeviceID}/health");
+            var status2 = await response2.Content.ReadAsStringAsync();
+            var parsed2 = JObject.Parse(status2);
+            if (parsed2["state"].ToString() == "OFFLINE")
+                return null;
+
             // get current TV status
             var response = await httpClient.GetAsync(APIPoint + $"devices/{data.DeviceID}/status");
+            //var response = await httpClient.GetAsync($"https://api.smartthings.com/devices/{data.DeviceID}/health");
             if (response.IsSuccessStatusCode)
             {
                 var status = await response.Content.ReadAsStringAsync();
@@ -458,6 +464,5 @@ namespace TVControl
                 }
             }
         }
-
     }
 }

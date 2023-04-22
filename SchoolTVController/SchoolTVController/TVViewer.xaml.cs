@@ -80,6 +80,7 @@ namespace SchoolTVController
         }
         async void _Refresh(bool debug)
         {
+            TVNameTextBlock.Text = Data.Name;
             try
             {
                 isRefreshing = true;

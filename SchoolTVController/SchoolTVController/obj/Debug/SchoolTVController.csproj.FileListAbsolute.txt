@@ -130,3 +130,4 @@ E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\Sc
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\SchoolTVController.csproj.CopyComplete
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\SchoolTVController.exe
 E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\SchoolTVController.pdb
+E:\DotNetFramework\SamsungTVController\SamsungTVController\SchoolTVController\SchoolTVController\obj\Debug\SchoolTVController.csprojAssemblyReference.cache
