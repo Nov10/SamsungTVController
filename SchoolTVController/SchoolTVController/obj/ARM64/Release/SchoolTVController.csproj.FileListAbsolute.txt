@@ -1,0 +1,13 @@
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\SchoolTVController.csproj.AssemblyReference.cache
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\AdvancedTVControllerWindow.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\MainSetting\SettingViewer.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\MainWindow.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\PresetSettingWindow.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\PresetViewer.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\TVViewer.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\TVViewerSettingWindow.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\App.g.cs
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\SchoolTVController_MarkupCompile.cache
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\SchoolTVController_MarkupCompile.lref
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\SchoolTVController.exe
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\ARM64\Release\SchoolTVController.pdb

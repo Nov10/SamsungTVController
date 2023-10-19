@@ -345,23 +345,32 @@ namespace TVControl
             //var response = await httpClient.GetAsync($"https://api.smartthings.com/devices/{data.DeviceID}/health");
             if (response.IsSuccessStatusCode)
             {
-                var status = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var status = await response.Content.ReadAsStringAsync();
 
-                var parsed = JObject.Parse(status);
+                    var parsed = JObject.Parse(status);
 
-                TVHealth helath = new TVHealth();
+                    TVHealth helath = new TVHealth();
 
-                var active = parsed["components"]["main"]["switch"]["switch"]["value"];
-                helath.Channel = parsed["components"]["main"]["tvChannel"]["tvChannel"]["value"].ToString();
-                helath.ChannelName = parsed["components"]["main"]["tvChannel"]["tvChannelName"]["value"].ToString();
-                helath.MediaInput = parsed["components"]["main"]["mediaInputSource"]["inputSource"]["value"].ToString();
-                helath.MediaInputName = FindNowMediaInputSourceName(helath.MediaInput, parsed);
-                helath.Mute = parsed["components"]["main"]["audioMute"]["mute"]["value"].ToString() == "muted" ? true : false;
-                if (active.ToString() == "on")
-                    helath.State = eState.On;
-                else
-                    helath.State = eState.Off;
-                return helath;
+                    var active = parsed["components"]["main"]["switch"]["switch"]["value"];
+                    helath.Channel = parsed["components"]["main"]["tvChannel"]["tvChannel"]["value"].ToString();
+                    helath.ChannelName = parsed["components"]["main"]["tvChannel"]["tvChannelName"]["value"].ToString();
+                    helath.MediaInput = parsed["components"]["main"]["mediaInputSource"]["inputSource"]["value"].ToString();
+                    helath.MediaInputName = FindNowMediaInputSourceName(helath.MediaInput, parsed);
+                    helath.Mute = parsed["components"]["main"]["audioMute"]["mute"]["value"].ToString() == "muted" ? true : false;
+                    if (active.ToString() == "on")
+                        helath.State = eState.On;
+                    else
+                        helath.State = eState.Off;
+                    return helath;
+
+                }
+                catch
+                {
+                    Console.WriteLine($"Error getting device status. Device: {data.Name}, {response.StatusCode}");
+                    return null;
+                }
             }
             else
             {
