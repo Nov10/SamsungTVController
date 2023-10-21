@@ -519,6 +519,7 @@ namespace SchoolTVController
             MasterSetting = TVFileController.ReadMasterSettingData();
             if (MasterSettingViewer != null)
                 MasterSettingViewer.Refresh();
+            RefreshAll();
         }
 
         public static Setting MasterSetting;

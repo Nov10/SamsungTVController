@@ -45,6 +45,7 @@ namespace SchoolTVController
             MainWindow.MasterSetting.TVGroupPath = GroupPresetDataFilePathTextBox.Text;
             MainWindow.MasterSetting.AccessToken = AccessTokenTextBox.Text;
             TVControl.TVFileController.WriteMasterSettingData(MainWindow.MasterSetting);
+            MainWindow.Instance.ReadMasterSetting();
             //this.Close();
         }
         private void TmpDataWriteButton_Click(object sender, RoutedEventArgs e)
