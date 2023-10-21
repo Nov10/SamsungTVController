@@ -72,9 +72,29 @@ namespace SchoolTVController
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MainWindow.Instance.IsViewerExistDeviceID(DeviceIDTextBox.Text, out string tvName) == true && tvName != TargetData.Name)
+            if (DeviceIDTextBox.Text == string.Empty)
             {
-                string messageBoxText = $"같은 DeviceID의 TV를 생성할 수 없습니다. '{tvName}'와 겹칩니다.";
+                string messageBoxText = $"TV의 DeviceID를 공백으로 설정할 수 없습니다.";
+                string caption = "Empty DeviceID";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
+            if (TVNameTextBox.Text == string.Empty)
+            {
+                string messageBoxText = $"TV의 이름을 공백으로 설정할 수 없습니다.";
+                string caption = "Empty Name";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
+            else if (MainWindow.Instance.IsViewerExistDeviceID(DeviceIDTextBox.Text, out string tvName) == true && tvName != TargetData.Name)
+            {
+                string messageBoxText = $"같은 DeviceID의 TV를 설정할 수 없습니다. '{tvName}'와 겹칩니다.";
                 string caption = "Same DeviceID";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
@@ -84,7 +104,7 @@ namespace SchoolTVController
             }
             else if (MainWindow.Instance.IsViewerExistName(TVNameTextBox.Text, out tvName) == true && tvName != TargetData.Name)
             {
-                string messageBoxText = $"같은 이름의 TV를 생성할 수 없습니다. '{tvName}'와 겹칩니다.";
+                string messageBoxText = $"같은 이름의 TV를 설정할 수 없습니다. '{tvName}'와 겹칩니다.";
                 string caption = "Same Name";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
@@ -116,6 +136,11 @@ namespace SchoolTVController
         private void Window_Closed(object sender, EventArgs e)
         {
             TargetViewer.SettingWindow = null;
+        }
+
+        private void DeviceIDTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

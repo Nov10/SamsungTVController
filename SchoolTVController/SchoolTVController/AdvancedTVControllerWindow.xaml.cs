@@ -70,6 +70,26 @@ namespace SchoolTVController
             MuteTextBlock.Text = Viewer.HealthState?.Mute == true ? "muted" : "unmuted";
             MediaInputNameTextBlock.Text = Viewer.HealthState?.MediaInputName;
             MediaInputTextBlock.Text = Viewer.HealthState?.MediaInput;
+            TVVolumeTextBlock.Text = Viewer.HealthState?.Volume.ToString();
+        }
+
+        private async void SetVolumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(SetVolumeTextBox.Text, out int volume))
+            {
+                if (0 <= volume && volume <= 100)
+                    await TVControl.TVController.SetTVVolume(Viewer.Data, volume);
+            }
+        }
+
+        private void SetVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void SetVolumeTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }

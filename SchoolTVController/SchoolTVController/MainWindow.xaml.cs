@@ -457,6 +457,20 @@ namespace SchoolTVController
             return -1;
         }
 
+        public bool TryFindPresetByName(string name, out GroupPreset preset)
+        {
+            for (int i = 0; i < Presets.Count; i++)
+            {
+                if (name == Presets[i].Name)
+                {
+                    preset = Presets[i];
+                    return true;
+                }
+            }
+            preset = null;
+            return false;
+        }
+
         #endregion
 
         public void ReadTVList()

@@ -244,6 +244,46 @@ namespace TVControl
 
             return await SendCommand(sender);
         }
+        public static async Task<bool> SetTVVolume(TVData data, int volume)
+        {
+            var setVolumeCommandData = new
+            {
+                commands = new[]
+                {
+                    new
+                    {
+                        component = "main",
+                        capability = "audioVolume",
+                        command = "setVolume",
+                        arguments = new {volume},
+                    }
+                 },
+                sequence = Guid.NewGuid().ToString()
+            };
+
+            SchoolTVController.MainWindow.FindTVViewPanel(data, out SchoolTVController.TVViewer viewer);
+
+            DataSender sender = new DataSender();
+            sender.Viewer = viewer;
+            sender.Data = data;
+            sender.CommandData = setVolumeCommandData;
+            sender.RightAfterRequest = () => {
+                if (sender.Viewer.AdvancedController != null)
+                {
+                    sender.Viewer.AdvancedController.TVVolumeTextBlock.Text = "Loading...";
+                }
+            };
+            sender.SuccessCondition = async () => {
+                var result = await GetTVVolume(data);
+                if (result == volume)
+                    return true;
+                return false;
+            };
+            sender.SuccessMessage = $"[VOLUME] TV's volume is {volume}. Device: {sender.Data.Name}";
+            sender.FailMessage = $"[VOLUME] Failed to set TV's volume {volume}. Device: {sender.Data.Name}";
+
+            return await SendCommand(sender);
+        }
         static async Task<bool> SendCommand(DataSender sender)
         {
             var stopWatch = new System.Diagnostics.Stopwatch();
@@ -315,6 +355,7 @@ namespace TVControl
             public string MediaInput;
             public string MediaInputName;
             public bool Mute;
+            public int Volume;
         }
         struct DataSender
         {
@@ -337,7 +378,7 @@ namespace TVControl
             var response2 = await httpClient.GetAsync(APIPoint + $"devices/{data.DeviceID}/health");
             var status2 = await response2.Content.ReadAsStringAsync();
             var parsed2 = JObject.Parse(status2);
-            if (parsed2["state"].ToString() == "OFFLINE")
+            if (parsed2["state"]?.ToString() == "OFFLINE")
                 return null;
 
             // get current TV status
@@ -359,6 +400,14 @@ namespace TVControl
                     helath.MediaInput = parsed["components"]["main"]["mediaInputSource"]["inputSource"]["value"].ToString();
                     helath.MediaInputName = FindNowMediaInputSourceName(helath.MediaInput, parsed);
                     helath.Mute = parsed["components"]["main"]["audioMute"]["mute"]["value"].ToString() == "muted" ? true : false;
+                    if(int.TryParse(parsed["components"]["main"]["audioVolume"]["volume"]["value"].ToString(), out int volume))
+                    {
+                        helath.Volume = volume;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                     if (active.ToString() == "on")
                         helath.State = eState.On;
                     else
@@ -425,6 +474,11 @@ namespace TVControl
         {
             var result = await GetAllInfo(data);
             return result.Mute;
+        }
+        public static async Task<int> GetTVVolume(TVData data)
+        {
+            var result = await GetAllInfo(data);
+            return result.Volume;
         }
 
         public static async Task<bool> UpdateTV(string deviceID)

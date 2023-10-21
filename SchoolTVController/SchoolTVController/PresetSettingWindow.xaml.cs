@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SchoolTVController
 {
@@ -118,15 +119,38 @@ namespace SchoolTVController
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            TargetPreset.Name = TmpPreset.Name;
-            TargetPreset.InstanceIDs = new List<string>(TmpPreset.InstanceIDs);
-            //TargetPreset.Names = new List<string>(TmpPreset.Names);
-            TargetPreset.Index = TmpPreset.Index;
-            OnSave?.Invoke();
-            this.Hide();
-            this.Close();
+            if(TmpPreset.Name == string.Empty)
+            {
+                string messageBoxText = $"TV의 이름을 공백으로 설정할 수 없습니다.";
+                string caption = "Empty Name";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
 
-            TVControl.TVFileController.WriteTVGroupData(MainWindow.Instance.Presets);
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
+            else if (MainWindow.Instance.TryFindPresetByName(TmpPreset.Name, out var v) == true)
+            {
+                string messageBoxText = $"같은 이름의 GroupPreset을 설정할 수 없습니다.";
+                string caption = "Same Name";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result;
+
+                result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
+            else
+            {
+                TargetPreset.Name = TmpPreset.Name;
+                TargetPreset.InstanceIDs = new List<string>(TmpPreset.InstanceIDs);
+                //TargetPreset.Names = new List<string>(TmpPreset.Names);
+                TargetPreset.Index = TmpPreset.Index;
+                OnSave?.Invoke();
+                this.Hide();
+                this.Close();
+
+                TVControl.TVFileController.WriteTVGroupData(MainWindow.Instance.Presets);
+            }
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
