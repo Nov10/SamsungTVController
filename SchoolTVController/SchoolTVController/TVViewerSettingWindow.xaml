@@ -29,7 +29,7 @@
         <Border CornerRadius="8" Height="102" Margin="10,182,0,0" VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Width="771">
             <Grid HorizontalAlignment="Left" />
         </Border>
-        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="95" Margin="128,185,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="647" FontSize="16"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="95" Margin="128,185,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="647" FontSize="16" AcceptsReturn="True" AcceptsTab="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="20,185,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="33" Width="103" FontSize="20"/>
 
         <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="705,387,0,0" VerticalAlignment="Top" Width="79" Click="SaveButton_Click" Height="24"/>
