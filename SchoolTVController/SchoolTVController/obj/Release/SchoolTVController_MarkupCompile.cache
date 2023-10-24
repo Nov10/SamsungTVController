@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\VSC\SamsungTVController\SchoolTVController\SchoolTVController\obj\Release\
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\obj\Release\
 SchoolTVController
 none
 false
 TRACE
-D:\VSC\SamsungTVController\SchoolTVController\SchoolTVController\App.xaml
+D:\DotNetFramework\SamsungTVController\SchoolTVController\SchoolTVController\App.xaml
 7-404676120
 
 172045011504
-14-340147347
+141370941159
 AdvancedTVControllerWindow.xaml;MainSetting\SettingViewer.xaml;MainWindow.xaml;PresetSettingWindow.xaml;PresetViewer.xaml;TVViewer.xaml;TVViewerSettingWindow.xaml;
 
 False
